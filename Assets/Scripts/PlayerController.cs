@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] BoxCollider2D bodyCollider;
+    [SerializeField] BoxCollider2D feetCollider;
 
 
-    float initialOffsetY, initialSizeY, jumpOffset;
+    float initialOffsetY, initialSizeY;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,9 +65,15 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        float jump = Input.GetAxis("Vertical");
-        animator.SetBool("Jump", jump > 0 ? true : false);
-        rb.AddForce(Vector3.up * jumpForce);
+        if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Platform")))
+        {
+            //float jump = Input.GetAxis("Vertical");
+            //animator.SetBool("Jump", jump > 0 ? true : false);
+            float jump = Input.GetAxis("Jump");
+            rb.velocity += new Vector2(rb.velocity.x, jump * jumpForce * Time.deltaTime);
+            animator.SetBool("Jump", jump > 0 ? true : false);
+            //rb.AddForce(Vector3.up * jumpForce * jump, ForceMode2D.Impulse);
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
