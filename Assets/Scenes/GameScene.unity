@@ -383,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 1039977028590649008, guid: 6e0ce7c647fce574194ad82aa905c526,
         type: 3}
       propertyPath: jumpForce
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1039977028590649008, guid: 6e0ce7c647fce574194ad82aa905c526,
         type: 3}
@@ -398,7 +398,7 @@ PrefabInstance:
     - target: {fileID: 1039977028590649009, guid: 6e0ce7c647fce574194ad82aa905c526,
         type: 3}
       propertyPath: m_Mass
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1039977028590649009, guid: 6e0ce7c647fce574194ad82aa905c526,
         type: 3}

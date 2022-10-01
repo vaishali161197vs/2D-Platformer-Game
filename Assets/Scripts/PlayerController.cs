@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     void Run()
     {
-        float speed = Input.GetAxis("Horizontal");
+        float speed = Input.GetAxisRaw("Horizontal");
         spriteRenderer.flipX = speed >= 0 ? false : true;
         animator.SetFloat("Speed", Mathf.Abs(speed));
         rb.velocity = new Vector2(playerSpeed * speed * Time.deltaTime, rb.velocity.y);
@@ -69,14 +69,19 @@ public class PlayerController : MonoBehaviour
         {
             //float jump = Input.GetAxis("Vertical");
             //animator.SetBool("Jump", jump > 0 ? true : false);
-            float jump = Input.GetAxis("Jump");
-            rb.velocity += new Vector2(rb.velocity.x, jump * jumpForce * Time.deltaTime);
-            animator.SetBool("Jump", jump > 0 ? true : false);
+            float jump = Input.GetAxisRaw("Jump");
+            if (jump > 0)
+            {
+                //rb.velocity += new Vector2(rb.velocity.x, jump * jumpForce * Time.deltaTime);
+                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            }
             //rb.AddForce(Vector3.up * jumpForce * jump, ForceMode2D.Impulse);
+            
+            animator.SetBool("Jump", jump > 0 ? true : false);
         }
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Collision: " + collision.gameObject.name);
-    }
+    //void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("Collision: " + collision.gameObject.name);
+    //}
 }
