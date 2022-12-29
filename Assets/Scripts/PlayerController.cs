@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BoxCollider2D bodyCollider;
     [SerializeField] BoxCollider2D feetCollider;
 
+    ScoreController scoreController;    
 
     float initialOffsetY, initialSizeY;
     // Start is called before the first frame update
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        scoreController = FindObjectOfType<ScoreController>();
 
         SetBodyColliderInitialValues();
     }
@@ -80,6 +83,13 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Jump", jump > 0 ? true : false);
         }
     }
+
+    internal void PickUpKey()
+    {
+        Debug.Log("Player collected key");
+        scoreController.IncreaseScore(10);
+    }
+
     //void OnCollisionEnter2D(Collision2D collision)
     //{
     //    Debug.Log("Collision: " + collision.gameObject.name);
