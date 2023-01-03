@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] BoxCollider2D bodyCollider;
+
+    
+
     [SerializeField] BoxCollider2D feetCollider;
 
     ScoreController scoreController;    
@@ -90,6 +93,12 @@ public class PlayerController : MonoBehaviour
         scoreController.IncreaseScore(10);
     }
 
+    public void KillPlayer()
+    {
+        Debug.Log("Player Killed by enemy.");
+        animator.SetTrigger("IsDead");
+        //Destroy(gameObject);
+    }
     //void OnCollisionEnter2D(Collision2D collision)
     //{
     //    Debug.Log("Collision: " + collision.gameObject.name);
