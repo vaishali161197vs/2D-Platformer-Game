@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         Patrol();
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

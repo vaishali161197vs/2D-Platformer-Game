@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float playerSpeed = 10f;
@@ -11,8 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] BoxCollider2D bodyCollider;
-
-    
+    [SerializeField] List<Image> Hearts = new List<Image>();
 
     [SerializeField] BoxCollider2D feetCollider;
 
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         scoreController = FindObjectOfType<ScoreController>();
-
+       
         SetBodyColliderInitialValues();
     }
     void SetBodyColliderInitialValues()
@@ -95,9 +95,26 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        Debug.Log("Player Killed by enemy.");
-        animator.SetTrigger("IsDead");
+        if (Hearts.Count > 0)
+        {
+            Image heart = Hearts[Hearts.Count - 1];
+            heart.enabled = false;
+            Hearts.RemoveAt(Hearts.Count - 1);
+            if (Hearts.Count <= 0)
+            {
+                Debug.Log("Player Killed by enemy.");
+                animator.SetTrigger("IsDead");
+
+                StartCoroutine(ReloadLevel());
+            }
+        }
         //Destroy(gameObject);
+    }
+
+    private IEnumerator ReloadLevel()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //void OnCollisionEnter2D(Collision2D collision)
     //{
