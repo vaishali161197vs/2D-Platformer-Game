@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] BoxCollider2D feetCollider;
 
-    ScoreController scoreController;    
+    ScoreController scoreController;
+    [SerializeField] GameOverController gameOverController;
 
     float initialOffsetY, initialSizeY;
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         scoreController = FindObjectOfType<ScoreController>();
+        
        
         SetBodyColliderInitialValues();
     }
@@ -104,18 +106,15 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Player Killed by enemy.");
                 animator.SetTrigger("IsDead");
+                gameOverController.PlayerDied();
 
-                StartCoroutine(ReloadLevel());
             }
         }
+        
         //Destroy(gameObject);
     }
 
-    private IEnumerator ReloadLevel()
-    {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    
     //void OnCollisionEnter2D(Collision2D collision)
     //{
     //    Debug.Log("Collision: " + collision.gameObject.name);

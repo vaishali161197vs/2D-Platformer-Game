@@ -223,13 +223,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7855a249f0c37ab4aa8d7f05871a1851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 500
-  jumpForce: 10
+  playerSpeed: 100
+  jumpForce: 50
   animator: {fileID: 0}
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
   bodyCollider: {fileID: 0}
+  Hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   feetCollider: {fileID: 2882498054037482701}
+  gameOverController: {fileID: 0}
 --- !u!61 &1039977028590649010
 BoxCollider2D:
   m_ObjectHideFlags: 0
