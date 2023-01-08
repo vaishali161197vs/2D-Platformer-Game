@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Player Killed by enemy.");
                 animator.SetTrigger("IsDead");
                 gameOverController.PlayerDied();
-
+                this.enabled = false;
             }
         }
         
