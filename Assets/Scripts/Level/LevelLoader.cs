@@ -16,8 +16,25 @@ public class LevelLoader : MonoBehaviour
     
     private void onClick()
     {
-        SceneManager.LoadScene(LevelName);
-        PlayerPrefs.SetString("LastLevel", LevelName);
+        LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
+        switch(levelStatus)
+        {
+            case LevelStatus.Locked:
+                Debug.Log("Can't Play this level till you unlock it.");
+                break;
+
+            case LevelStatus.Unlocked:
+                SceneManager.LoadScene(LevelName);
+                PlayerPrefs.SetString("LastLevel", LevelName);
+                break;
+
+            case LevelStatus.Completed:
+                SceneManager.LoadScene(LevelName);
+                PlayerPrefs.SetString("LastLevel", LevelName);
+                break;
+        }
+        
+        
     }
 
     

@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dbf86e7cf1a6504ab26832e6fd9554f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: Level1
+  LevelName: Level 1
 --- !u!1 &279473884
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dbf86e7cf1a6504ab26832e6fd9554f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: Level4
+  LevelName: Level 4
 --- !u!1 &836583070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,7 +1184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dbf86e7cf1a6504ab26832e6fd9554f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: Level3
+  LevelName: Level 3
 --- !u!1 &933562628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,6 +1439,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 0}
+--- !u!1 &1128915430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1128915432}
+  - component: {fileID: 1128915431}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1128915431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128915430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae8528603c791444b1a38ca745ae8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Levels:
+  - Level 1
+  - Level 2
+  - Level 3
+  - Level 4
+--- !u!4 &1128915432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128915430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1273626379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,7 +1997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dbf86e7cf1a6504ab26832e6fd9554f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: Level2
+  LevelName: Level 2
 --- !u!1 &1567942805
 GameObject:
   m_ObjectHideFlags: 0
