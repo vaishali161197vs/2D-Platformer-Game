@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     void Run()
     {
+        SoundManager.Instance.Play(Sounds.PlayerMove);
         float speed = Input.GetAxisRaw("Horizontal");
         spriteRenderer.flipX = speed >= 0 ? false : true;
         animator.SetFloat("Speed", Mathf.Abs(speed));
