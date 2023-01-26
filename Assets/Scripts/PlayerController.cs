@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Hearts.Count > 0)
         {
+            SoundManager.Instance.Play(Sounds.LifeLost);
             Image heart = Hearts[Hearts.Count - 1];
             heart.enabled = false;
             Hearts.RemoveAt(Hearts.Count - 1);
